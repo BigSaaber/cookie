@@ -1,8 +1,10 @@
 package e.max_1l.not_a_virus;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,7 +17,7 @@ public class StatisticActivity extends AppCompatActivity implements View.OnClick
     TextView allcookies, clickcookies, farmcookies,ach1name, ach1cond ;
     ImageView ach1;
     int allc, num, clickc, farmc,flag=0 ;
-    Button back ;
+    Button back,reset ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,9 +30,10 @@ public class StatisticActivity extends AppCompatActivity implements View.OnClick
         clickcookies = findViewById(R.id.clickcookies) ;
         farmcookies = findViewById(R.id.farmcookies) ;
         back = findViewById(R.id.back) ;
+        reset = findViewById(R.id.reset) ;
 
         back.setOnClickListener(this);
-        ach1.setOnClickListener(this);
+        reset.setOnClickListener(this);
 
         allc = getIntent().getIntExtra("allc", -1 ) ;
         num = getIntent().getIntExtra("num", -1 ) ;
@@ -50,6 +53,30 @@ public class StatisticActivity extends AppCompatActivity implements View.OnClick
 
 
     }
+    public void resetfunc(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(StatisticActivity.this);
+        builder.setTitle("reset the progress");
+        builder.setMessage("Do you sure?");
+        builder.setCancelable(true);
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) { }});
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                num=0;
+                allc=0;
+                clickc=0;
+                farmc=0;
+                allcookies.setText(allc+" cookies produced");
+                clickcookies.setText(clickc+" cookies by clicks");
+                farmcookies.setText(farmc+" cookies by farm");
+            }
+        });
+        AlertDialog alert = builder.create();
+        alert.show();
+
+    }
     @Override
     public void onClick(View v) {
         switch (v.getId()){
@@ -61,6 +88,9 @@ public class StatisticActivity extends AppCompatActivity implements View.OnClick
                 g.putExtra("farmc", farmc) ;
                 setResult(RESULT_OK,g);
                 finish();
+                break;
+            case R.id.reset:
+                resetfunc();
                 break;
         }
     }
