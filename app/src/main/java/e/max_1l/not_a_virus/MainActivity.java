@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public static final String allcSetting = "allcSetting";
     public static final String clickcSetting = "clickSetting";
     public static final String farmcSetting = "farmSetting";
-    private SharedPreferences mSettings;
+    public SharedPreferences mSettings;
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////// сохранение настроек///////////////////////
 
@@ -159,6 +159,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivityForResult(i,1);
             break;
             case R.id.statistics:
+                /*
                 Intent g = new Intent(this, StatisticActivity.class) ;
                 g.putExtra("allc", allc) ;
                 g.putExtra("num", num) ;
@@ -166,6 +167,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 g.putExtra("farmc", farmc) ;
                 mSoundPool.play(confirmSoundId,1,1,1,0,2);
                 startActivityForResult(g,2);
+                */
+                Intent g = new Intent(this, LastShopActivity.class) ;
+                startActivity(g);
              break;
             case R.id.r_shop:
                 Intent f = new Intent(this,RecyclerShopActivity.class) ;
@@ -179,6 +183,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivityForResult(f,1);
                 break;
         }
+    }
+
+    public void myVoid(){
+        //mSettings.getInt()
     }
 
 

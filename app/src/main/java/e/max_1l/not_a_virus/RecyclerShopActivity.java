@@ -67,7 +67,7 @@ public class RecyclerShopActivity extends AppCompatActivity implements View.OnCl
         bback = findViewById(R.id.back);
         amount = findViewById(R.id.cookies_amount);
         farmspeed = findViewById(R.id.cookies_farmspeed);
-        log = findViewById(R.id.log);
+        //log = findViewById(R.id.log);
 
         bback.setOnClickListener(this);
 
@@ -115,12 +115,18 @@ public class RecyclerShopActivity extends AppCompatActivity implements View.OnCl
         putMrSettings();
 
     }
+    protected void onDestroy() {
+        super.onDestroy();
+        putMrSettings();
+
+    }
 
 
     protected void onStop() {
         super.onStop();
-        putMrSettings();
+        //putMrSettings();
     }
+
 
 
     protected void onResume() {
@@ -157,8 +163,8 @@ public class RecyclerShopActivity extends AppCompatActivity implements View.OnCl
             lootPrices.set(4, mrSettings.getInt(lootPricesSetting5, p5));
             lootPrices.set(5, mrSettings.getInt(lootPricesSetting6, p6));
             lootPrices.set(6, mrSettings.getInt(lootPricesSetting7, p7));
-            lootPrices.set(7, mrSettings.getInt(lootPricesSetting7, p8));
-            lootPrices.set(8, mrSettings.getInt(lootPricesSetting7, p9));
+            lootPrices.set(7, mrSettings.getInt(lootPricesSetting8, p8));
+            lootPrices.set(8, mrSettings.getInt(lootPricesSetting9, p9));
 
 
     }
