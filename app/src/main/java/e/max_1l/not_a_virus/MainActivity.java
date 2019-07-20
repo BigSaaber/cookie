@@ -169,7 +169,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivityForResult(g,2);
                 */
                 Intent g = new Intent(this, LastShopActivity.class) ;
-                startActivity(g);
+                g.putExtra("num", num) ;
+                g.putExtra("count", count) ;
+                g.putExtra("ccost", ccost) ;
+                g.putExtra("fspeed", fspeed) ;
+                g.putExtra("fcost", fcost) ;
+                startActivityForResult(g,3);
              break;
             case R.id.r_shop:
                 Intent f = new Intent(this,RecyclerShopActivity.class) ;
@@ -275,6 +280,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         break;
                 }
             break;
+            case 3:
+                switch (resultCode) {
+                    case RESULT_OK:
+                        num = data.getIntExtra("num", 0);
+                        number.setText(num + " cookie");
+                        count = data.getIntExtra("count", 0);
+                        clickspeed.setText(count + "/click");
+                        ccost = data.getIntExtra("ccost", 0);
+                        fspeed = data.getIntExtra("fspeed", 0);
+                        farmspeed.setText(fspeed + "/sec");
+                        fcost = data.getIntExtra("fcost", 0);
+
+                        break;
+                }
         }
 
     }

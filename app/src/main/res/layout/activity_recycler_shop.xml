@@ -16,7 +16,7 @@
     </android.support.v7.widget.RecyclerView>
 
     <Button
-        android:id="@+id/back"
+        android:id="@+id/back_lastshop_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -32,7 +32,7 @@
         android:id="@+id/cookies_amount"
         android:text="n cookies"
         android:layout_centerHorizontal="true"
-        android:layout_above="@+id/back"
+        android:layout_above="@+id/back_lastshop_button"
         android:layout_marginBottom="10dp"
         android:textColor="@color/colorBrownText"
         android:textSize="24sp"

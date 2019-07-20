@@ -1,8 +1,10 @@
 package e.max_1l.not_a_virus;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +20,7 @@ public class LastRecyclerAdapter extends RecyclerView.Adapter<LastRecyclerAdapte
     public LastRecyclerAdapter(Context context, ArrayList<Agent> agents) {
         this.agents = agents;
         this.inflater = LayoutInflater.from(context);
+
     }
 
     @NonNull
@@ -29,11 +32,24 @@ public class LastRecyclerAdapter extends RecyclerView.Adapter<LastRecyclerAdapte
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-        Agent agent = agents.get(i);
+    public void onBindViewHolder(@NonNull final ViewHolder viewHolder, final int i) {
+        final Agent agent = agents.get(i);
         viewHolder.upgrade.setText(String.valueOf(agent.upgrade));
         viewHolder.price.setText(String.valueOf(agent.price));
         viewHolder.name.setText(String.valueOf(agent.name));
+        viewHolder.buy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                agent.price=agent.price*3/2;
+                viewHolder.price.setText(String.valueOf(agent.price));
+                agents.get(i).price = agent.price;
+            }
+        });
+    }
+
+    public ArrayList<Agent> getAgents(){
+        Log.d("dota","first price agent from adapter: "+ agents.get(0).price+"   size:"+ agents.size());
+        return agents;
 
     }
 

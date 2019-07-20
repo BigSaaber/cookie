@@ -3,7 +3,6 @@ package e.max_1l.not_a_virus;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,8 +13,6 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import javax.crypto.NullCipher;
-
 public class RecyclerShopActivity extends AppCompatActivity implements View.OnClickListener {
 
     public static ArrayList<String> lootNames = new ArrayList<>();
@@ -23,7 +20,6 @@ public class RecyclerShopActivity extends AppCompatActivity implements View.OnCl
     public static ArrayList<Integer> lootDeeds = new ArrayList<>();
     Button bback;
     static TextView amount, farmspeed;
-    static TextView log;
     public static int num, fcost , fspeed , ccost , count ;
 
     static Integer p1=100,p2=500, p3=1000, p4=5000, p5=10000, p6=50000, p7=100001, p8=500002, p9=1000003;
@@ -64,7 +60,7 @@ public class RecyclerShopActivity extends AppCompatActivity implements View.OnCl
         setContentView(R.layout.activity_recycler_shop);
 
 
-        bback = findViewById(R.id.back);
+        bback = findViewById(R.id.back_lastshop_button);
         amount = findViewById(R.id.cookies_amount);
         farmspeed = findViewById(R.id.cookies_farmspeed);
         //log = findViewById(R.id.log);
@@ -227,7 +223,7 @@ public class RecyclerShopActivity extends AppCompatActivity implements View.OnCl
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.back:
+            case R.id.back_lastshop_button:
                 Intent f = new Intent();
                 //int num = 0,count = 1, ccost = 10,fspeed = 0, fcost = 10 ;
                 f.putExtra("num", num) ;

@@ -8,7 +8,7 @@
     tools:context=".LastShopActivity">
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/lrv"
+        android:id="@+id/view_lasthop_rv"
         android:layout_width="368dp"
         android:layout_height="333dp"
         android:layout_marginStart="8dp"
@@ -26,7 +26,7 @@
 
 
     <Button
-        android:id="@+id/back"
+        android:id="@+id/back_lastshop_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -48,10 +48,10 @@
         app:layout_constraintVertical_bias="0.894" />
 
     <TextView
-        android:id="@+id/cookies_amount"
+        android:id="@+id/amount_lastshop_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/back"
+        android:layout_above="@+id/back_lastshop_button"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
@@ -70,7 +70,7 @@
         app:layout_constraintVertical_bias="0.982" />
 
     <TextView
-        android:id="@+id/cookies_farmspeed"
+        android:id="@+id/farmspeed_lastshop_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
