@@ -11,7 +11,7 @@
         android:layout_centerVertical="true"
         android:layout_marginLeft="20dp"
         android:text="Grandma"
-        android:textSize="20sp"
+        android:textSize="14sp"
         android:textColor="@color/colorBrownText"
         android:typeface="serif"/>
 
@@ -24,6 +24,7 @@
         android:layout_marginRight="10dp"
         android:background="@drawable/button"
         android:textColor="@color/colorTextLightYellow"
+        android:fontFamily="@font/action_man"
         android:textSize="20sp"
         android:text="BUY" />
 
@@ -32,11 +33,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:layout_marginRight="39dp"
+        android:layout_marginRight="10dp"
         android:layout_toLeftOf="@id/buy_button"
         android:text="n cookies"
         android:textColor="@color/colorBrownText"
-        android:textSize="15sp"
+        android:textSize="10sp"
         android:typeface="serif" />
 
     <TextView
@@ -44,12 +45,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/price_text"
-        android:layout_marginRight="40dp"
+        android:layout_marginTop="-1dp"
+        android:layout_marginRight="11dp"
         android:layout_marginBottom="5dp"
         android:layout_toLeftOf="@id/buy_button"
         android:text="n/sec"
         android:textColor="@color/colorBrownText"
-        android:textSize="15sp"
+        android:textSize="10sp"
         android:typeface="serif" />
 
 </RelativeLayout>

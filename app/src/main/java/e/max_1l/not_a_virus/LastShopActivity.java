@@ -145,9 +145,9 @@ public class LastShopActivity extends AppCompatActivity implements View.OnClickL
     public ArrayList<Agent> makeAgents(){
         ArrayList<Agent> agents = new ArrayList<>();
         Agent agent;
-        String[] names = {"one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve","thirteen","fourteen","fifteen"};
-        int[] prices = {100,200,300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500};
-        int[] upgrades = {2,4,6,8,10,12,14,16,18,20,22,24,26,28,30};
+        String[] names = {"Grandma","Robot","C-Farm","S-Farm","X-Farm","C-Factory","S-Factory","X-Factory","Cloner","Laboratory","C-Virus","NanoTech"};
+        int[] prices = {5,100,1000,10000,50000,200000,500000,1000000,5000000,30000000,70000000,200000000};
+        int[] upgrades = {1,3,10,30,60,200,400,700,3000,15000,30000,80000};
         for (int i = 0; i <names.length ; i++) {
             agent = new Agent(names[i],upgrades[i],prices[i]);
             agents.add(agent);
