@@ -2,12 +2,9 @@ package e.max_1l.not_a_virus;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.Build;
-import android.support.annotation.RequiresApi;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -29,7 +26,7 @@ public class StatisticActivity extends AppCompatActivity implements View.OnClick
         allcookies = findViewById(R.id.allcookies) ;
         clickcookies = findViewById(R.id.clickcookies) ;
         farmcookies = findViewById(R.id.farmcookies) ;
-        back = findViewById(R.id.back) ;
+        back = findViewById(R.id.back_lastshop_button) ;
         reset = findViewById(R.id.reset) ;
 
         back.setOnClickListener(this);
@@ -80,7 +77,7 @@ public class StatisticActivity extends AppCompatActivity implements View.OnClick
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.back:
+            case R.id.back_lastshop_button:
                 Intent g = new Intent();
                 g.putExtra("num", num) ;
                 g.putExtra("allc", allc) ;

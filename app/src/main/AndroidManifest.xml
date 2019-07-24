@@ -20,7 +20,8 @@
         </activity>
         <activity android:name=".ShopActivity" />
         <activity android:name=".StatisticActivity" />
-        <activity android:name=".RecyclerShopActivity"></activity>
+        <activity android:name=".RecyclerShopActivity" />
+        <activity android:name=".LastShopActivity"></activity>
     </application>
 
 </manifest>

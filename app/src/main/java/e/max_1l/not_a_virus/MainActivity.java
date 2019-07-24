@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public static final String allcSetting = "allcSetting";
     public static final String clickcSetting = "clickSetting";
     public static final String farmcSetting = "farmSetting";
-    private SharedPreferences mSettings;
+    public SharedPreferences mSettings;
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////// сохранение настроек///////////////////////
 
@@ -168,7 +168,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivityForResult(g,2);
              break;
             case R.id.r_shop:
-                Intent f = new Intent(this,RecyclerShopActivity.class) ;
+                Intent f = new Intent(this,LastShopActivity.class) ;
                 //int num = 0,count = 1, ccost = 10,fspeed = 0, fcost = 10 ;
                 f.putExtra("num", num) ;
                 f.putExtra("count", count) ;
@@ -179,6 +179,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivityForResult(f,1);
                 break;
         }
+    }
+
+    public void myVoid(){
+        //mSettings.getInt()
     }
 
 
@@ -267,6 +271,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         break;
                 }
             break;
+            case 3:
+                switch (resultCode) {
+                    case RESULT_OK:
+                        num = data.getIntExtra("num", 0);
+                        number.setText(num + " cookie");
+                        count = data.getIntExtra("count", 0);
+                        clickspeed.setText(count + "/click");
+                        ccost = data.getIntExtra("ccost", 0);
+                        fspeed = data.getIntExtra("fspeed", 0);
+                        farmspeed.setText(fspeed + "/sec");
+                        fcost = data.getIntExtra("fcost", 0);
+
+                        break;
+                }
         }
 
     }

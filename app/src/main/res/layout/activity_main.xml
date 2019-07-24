@@ -82,7 +82,7 @@
 
     <Button
         android:id="@+id/shop"
-        android:layout_width="wrap_content"
+        android:layout_width="124dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
@@ -91,7 +91,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/button"
-        android:text="shop"
+        android:text="click shop"
         android:textColor="@color/colorTextLightYellow"
         android:textSize="20sp"
         android:typeface="monospace"
@@ -126,7 +126,7 @@
 
     <Button
         android:id="@+id/r_shop"
-        android:layout_width="wrap_content"
+        android:layout_width="94dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
@@ -135,7 +135,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/button"
-        android:text="rshop"
+        android:text="cps shop"
         android:textColor="@color/colorTextLightYellow"
         android:textSize="18sp"
         android:typeface="monospace"

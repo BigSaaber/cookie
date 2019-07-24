@@ -23,7 +23,7 @@ TextView cookie, clickspeed, cookiescost, farmcost, farmspeed ;
          */
 
         farmshop = findViewById(R.id.farmshop) ;
-        back = findViewById(R.id.back) ;
+        back = findViewById(R.id.back_lastshop_button) ;
         clickshop = findViewById(R.id.clickshop) ;
         cookie = findViewById(R.id.cookie) ;
         clickspeed = findViewById(R.id.clickspeed) ;
@@ -89,7 +89,7 @@ TextView cookie, clickspeed, cookiescost, farmcost, farmspeed ;
                     farmcost.setText(fcost+" cookies");
                 }
             break;
-            case R.id.back:
+            case R.id.back_lastshop_button:
                 Intent f = new Intent();
                 //int num = 0,count = 1, ccost = 10,fspeed = 0, fcost = 10 ;
                 f.putExtra("num", num) ;

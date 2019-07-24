@@ -16,7 +16,7 @@
     </android.support.v7.widget.RecyclerView>
 
     <Button
-        android:id="@+id/back"
+        android:id="@+id/back_lastshop_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -32,7 +32,7 @@
         android:id="@+id/cookies_amount"
         android:text="n cookies"
         android:layout_centerHorizontal="true"
-        android:layout_above="@+id/back"
+        android:layout_above="@+id/back_lastshop_button"
         android:layout_marginBottom="10dp"
         android:textColor="@color/colorBrownText"
         android:textSize="24sp"
@@ -50,20 +50,7 @@
         android:textSize="24sp"
         android:typeface="serif"/>
 
-    <TextView
-        android:id="@+id/log"
-        android:layout_width="149dp"
-        android:layout_height="86dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="3dp"
-        android:layout_marginLeft="3dp"
-        android:layout_marginEnd="-4dp"
-        android:layout_marginRight="-4dp"
-        android:layout_marginBottom="2dp"
-        android:layout_toStartOf="@+id/back"
-        android:layout_toLeftOf="@+id/back" />
+
 
 
 </RelativeLayout>

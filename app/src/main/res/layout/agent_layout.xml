@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/parent_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/name_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="20dp"
+        android:text="Grandma"
+        android:textSize="20sp"
+        android:textColor="@color/colorBrownText"
+        android:typeface="serif"/>
+
+    <Button
+        android:id="@+id/buy_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/button"
+        android:textColor="@color/colorTextLightYellow"
+        android:textSize="20sp"
+        android:text="BUY" />
+
+    <TextView
+        android:id="@+id/price_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="39dp"
+        android:layout_toLeftOf="@id/buy_button"
+        android:text="n cookies"
+        android:textColor="@color/colorBrownText"
+        android:textSize="15sp"
+        android:typeface="serif" />
+
+    <TextView
+        android:id="@+id/upgrade_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/price_text"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="5dp"
+        android:layout_toLeftOf="@id/buy_button"
+        android:text="n/sec"
+        android:textColor="@color/colorBrownText"
+        android:textSize="15sp"
+        android:typeface="serif" />
+
+</RelativeLayout>
