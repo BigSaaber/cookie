@@ -34,15 +34,17 @@ public class LastRecyclerAdapter extends RecyclerView.Adapter<LastRecyclerAdapte
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder viewHolder, final int i) {
         final Agent agent = agents.get(i);
-        viewHolder.upgrade.setText(String.valueOf(agent.upgrade));
-        viewHolder.price.setText(String.valueOf(agent.price));
+        viewHolder.upgrade.setText(String.valueOf(agent.upgrade)+ " cookies/sec");
+        viewHolder.price.setText(String.valueOf(agent.price) + " cookies");
         viewHolder.name.setText(String.valueOf(agent.name));
         viewHolder.buy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                agent.price=agent.price*3/2;
-                viewHolder.price.setText(String.valueOf(agent.price));
-                agents.get(i).price = agent.price;
+                if (LastShopActivity.buyAnUpgrade(agent.price,agent.upgrade)) {
+                    agent.price = agent.price * 13 / 10;
+                    viewHolder.price.setText(String.valueOf(agent.price) + " cookies");
+                    agents.get(i).price = agent.price;
+                }
             }
         });
     }

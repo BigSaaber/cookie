@@ -18,7 +18,8 @@ public class LastShopActivity extends AppCompatActivity implements View.OnClickL
 
     RecyclerView rv;
     Button back;
-    TextView amount, farmspeed;
+    static TextView amount;
+    static TextView farmspeed;
     LastRecyclerAdapter adapter;
     public static int num, fcost , fspeed , ccost , count ;
     //
@@ -60,8 +61,6 @@ public class LastShopActivity extends AppCompatActivity implements View.OnClickL
         }
         getIntentSettings();
         setUI();
-
-        
     }
 
     @Override
@@ -78,6 +77,18 @@ public class LastShopActivity extends AppCompatActivity implements View.OnClickL
         Log.d("dota 78","onPause started");
         refreshAgents();
         savelsSettings();
+    }
+
+    public static boolean buyAnUpgrade(int cost, int upgrade){
+        Log.d("UIl1","mad started   "+num);
+        if (num>=cost) {
+            num -= cost;
+            fspeed += upgrade;
+            setUI();
+            Log.d("UIl1","mad worked    "+num);
+            return true;
+        }
+        return false;
     }
 
     public void refreshAgents(){
@@ -121,7 +132,7 @@ public class LastShopActivity extends AppCompatActivity implements View.OnClickL
         fspeed = getIntent().getIntExtra("fspeed", -1 ) ;
         fcost = getIntent().getIntExtra("fcost", -1 ) ;
     }
-    private void setUI(){
+    private static void setUI(){
         if (num!=1) {
             amount.setText(num + " cookies");
         }

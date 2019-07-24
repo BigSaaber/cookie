@@ -159,7 +159,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivityForResult(i,1);
             break;
             case R.id.statistics:
-                /*
                 Intent g = new Intent(this, StatisticActivity.class) ;
                 g.putExtra("allc", allc) ;
                 g.putExtra("num", num) ;
@@ -167,17 +166,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 g.putExtra("farmc", farmc) ;
                 mSoundPool.play(confirmSoundId,1,1,1,0,2);
                 startActivityForResult(g,2);
-                */
-                Intent g = new Intent(this, LastShopActivity.class) ;
-                g.putExtra("num", num) ;
-                g.putExtra("count", count) ;
-                g.putExtra("ccost", ccost) ;
-                g.putExtra("fspeed", fspeed) ;
-                g.putExtra("fcost", fcost) ;
-                startActivityForResult(g,3);
              break;
             case R.id.r_shop:
-                Intent f = new Intent(this,RecyclerShopActivity.class) ;
+                Intent f = new Intent(this,LastShopActivity.class) ;
                 //int num = 0,count = 1, ccost = 10,fspeed = 0, fcost = 10 ;
                 f.putExtra("num", num) ;
                 f.putExtra("count", count) ;
