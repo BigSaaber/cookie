@@ -11,17 +11,22 @@
         android:roundIcon="@drawable/icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ShopActivity" />
-        <activity android:name=".StatisticActivity" />
-        <activity android:name=".RecyclerShopActivity" />
-        <activity android:name=".LastShopActivity"></activity>
+        <activity android:name=".ShopActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".StatisticActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".RecyclerShopActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".LastShopActivity"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

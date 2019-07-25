@@ -17,6 +17,7 @@ public class LastRecyclerAdapter extends RecyclerView.Adapter<LastRecyclerAdapte
     private LayoutInflater inflater;
     private ArrayList<Agent> agents;
 
+
     public LastRecyclerAdapter(Context context, ArrayList<Agent> agents) {
         this.agents = agents;
         this.inflater = LayoutInflater.from(context);
@@ -44,6 +45,7 @@ public class LastRecyclerAdapter extends RecyclerView.Adapter<LastRecyclerAdapte
                     agent.price = agent.price * 13 / 10;
                     viewHolder.price.setText(String.valueOf(agent.price) + " cookies");
                     agents.get(i).price = agent.price;
+                    LastShopActivity.playBuySound();
                 }
             }
         });

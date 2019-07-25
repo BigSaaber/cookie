@@ -10,6 +10,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button  shop, statistics,rshop ;
     Handler h ;
     int firstFlag = 0;
+    public static boolean newGame = false;
 
 
 
@@ -42,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public static final String allcSetting = "allcSetting";
     public static final String clickcSetting = "clickSetting";
     public static final String farmcSetting = "farmSetting";
-    public SharedPreferences mSettings;
+    public static SharedPreferences mSettings;
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////// сохранение настроек///////////////////////
 
@@ -75,6 +77,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         rshop.setSoundEffectsEnabled(false);
 
         mSettings = getSharedPreferences(fileName, Context.MODE_PRIVATE);
+        if (newGame){
+            SharedPreferences.Editor editor = mSettings.edit();
+            editor.clear();
+            editor.apply();
+            newGame = false;
+        }
 
         mSoundPool = new SoundPool(10,AudioManager.STREAM_MUSIC,0);
         soundId = mSoundPool.load(this,R.raw.cookiesound,1);
@@ -141,7 +149,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
 
 
+        setText();
+        Log.d("ResetAt","onCreate");
+    }
 
+    public static void clearmSettings(){
+        newGame = true;
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        SharedPreferences.Editor editor = mSettings.edit();
+        editor.putInt(numSetting,num);
+        editor.putInt(countSetting,count);
+        editor.putInt(ccostSetting,ccost);
+        editor.putInt(fspeedSetting,fspeed);
+        editor.putInt(fcostSetting,fcost);
+        editor.putInt(allcSetting,allc);
+        editor.putInt(clickcSetting,clickc);
+        editor.putInt(farmcSetting,farmc);
+        Log.d("SettingsAt",fspeed+"   fspeed onStop"+mSettings.getInt("fspeedSetting",-1));
+        editor.apply();
+        Log.d("ResetAt","onStop");
     }
 
     @Override
@@ -181,13 +212,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    public void myVoid(){
-        //mSettings.getInt()
-    }
-
-
-
-
     protected void onPause() {
         super.onPause();
 
@@ -201,6 +225,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         editor.putInt(clickcSetting,clickc);
         editor.putInt(farmcSetting,farmc);
         editor.apply();
+        Log.d("SettingsAt",fspeed+"   fspeed onPause"+mSettings.getInt("fspeedSetting",-66));
+        Log.d("ResetAt","onPause");
     }
 
     protected void onResume() {
@@ -210,7 +236,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             setmSettings();
         }
 
+        if (newGame){
+            SharedPreferences.Editor editor = mSettings.edit();
+            editor.clear();
+            editor.apply();
+            Log.d("ResetAt","sp was cleared");
+            setmSettings();
+            newGame = false;
+        }
 
+        Log.d("ResetAt","onResume");
     }
 
     private void setmSettings(){
@@ -222,6 +257,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         allc = mSettings.getInt(allcSetting, 0);
         clickc = mSettings.getInt(clickcSetting, 0);
         farmc = mSettings.getInt(farmcSetting, 0);
+        Log.d("SettingsAt",fspeed+"   fspeed setmSettings"+mSettings.getInt("fspeedSetting",-41));
         setText();
 
     }

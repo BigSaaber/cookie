@@ -22,6 +22,8 @@
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
         android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/button"
         android:textColor="@color/colorTextLightYellow"
         android:textSize="20sp"
@@ -31,8 +33,13 @@
         android:id="@+id/price_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< Updated upstream
         android:layout_marginTop="5dp"
         android:layout_marginRight="39dp"
+=======
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="8dp"
+>>>>>>> Stashed changes
         android:layout_toLeftOf="@id/buy_button"
         android:text="n cookies"
         android:textColor="@color/colorBrownText"
@@ -44,8 +51,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/price_text"
+<<<<<<< Updated upstream
         android:layout_marginRight="40dp"
         android:layout_marginBottom="5dp"
+=======
+        android:layout_marginTop="14dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="20dp"
+>>>>>>> Stashed changes
         android:layout_toLeftOf="@id/buy_button"
         android:text="n/sec"
         android:textColor="@color/colorBrownText"

@@ -22,7 +22,12 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+<<<<<<< Updated upstream
         app:layout_constraintVertical_bias="0.049" />
+=======
+        app:layout_constraintVertical_bias="0.0"
+        android:background="@drawable/rvbackground"/>
+>>>>>>> Stashed changes
 
 
     <Button

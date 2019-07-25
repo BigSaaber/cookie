@@ -3,6 +3,8 @@ package e.max_1l.not_a_virus;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.AudioManager;
+import android.media.SoundPool;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -23,12 +25,16 @@ public class LastShopActivity extends AppCompatActivity implements View.OnClickL
     LastRecyclerAdapter adapter;
     public static int num, fcost , fspeed , ccost , count ;
     //
-    public SharedPreferences lsSettings;
+    public static SharedPreferences lsSettings;
     public static final String settingsName = "settingsName";
     public static final String agentsListName = "agentsListName";
     public ArrayList<Integer> agentsPriceList = new ArrayList<>();
     public ArrayList<Agent> agents;
+    public static SharedPreferences.Editor editor;
     //
+    static SoundPool mSoundPool;
+    int  soundId;
+    static int confirmSoundId;
 
 
     @Override
@@ -43,6 +49,7 @@ public class LastShopActivity extends AppCompatActivity implements View.OnClickL
         farmspeed = findViewById(R.id.farmspeed_lastshop_text);
 
         back.setOnClickListener(this);
+        back.setSoundEffectsEnabled(false);
 
         lsSettings = getSharedPreferences(settingsName,Context.MODE_PRIVATE);
         if(lsSettings.contains(agentsListName+"1")) {
@@ -61,6 +68,9 @@ public class LastShopActivity extends AppCompatActivity implements View.OnClickL
         }
         getIntentSettings();
         setUI();
+        mSoundPool = new SoundPool(10,AudioManager.STREAM_MUSIC,0);
+        soundId = mSoundPool.load(this,R.raw.cookiesound,1);
+        confirmSoundId = mSoundPool.load(this,R.raw.confirm,1);
     }
 
     @Override
@@ -90,13 +100,16 @@ public class LastShopActivity extends AppCompatActivity implements View.OnClickL
         }
         return false;
     }
+    public static void playBuySound(){
+        mSoundPool.play(confirmSoundId,1,1,1,0,2);
+    }
 
     public void refreshAgents(){
         agents = adapter.getAgents();
     }
 
     public void savelsSettings(){
-        SharedPreferences.Editor editor = lsSettings.edit();
+        editor = lsSettings.edit();
         for (int i = 0; i <agents.size() ; i++) {
             int j = i+1;
             editor.putInt(agentsListName+j,agents.get(i).price);
@@ -110,11 +123,17 @@ public class LastShopActivity extends AppCompatActivity implements View.OnClickL
             agentsPriceList.add(i.price);
         }
         
-        SharedPreferences.Editor editor = lsSettings.edit();
+         editor = lsSettings.edit();
         for (int i = 0; i <agentsPriceList.size() ; i++) {
             int j = i+1;
             editor.putInt(agentsListName+j,agentsPriceList.get(i));
         }
+        editor.apply();
+    }
+
+    public static void clearlsSettings(){
+        editor = lsSettings.edit();
+        //editor.clear();
         editor.apply();
     }
 
@@ -168,7 +187,7 @@ public class LastShopActivity extends AppCompatActivity implements View.OnClickL
                 f.putExtra("ccost", ccost) ;
                 f.putExtra("fspeed", fspeed) ;
                 f.putExtra("fcost", fcost) ;
-
+                mSoundPool.play(confirmSoundId,1,1,1,0,2);
                 setResult(RESULT_OK,f);
                 finish();
                 break;
